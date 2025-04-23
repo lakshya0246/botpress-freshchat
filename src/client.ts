@@ -89,7 +89,8 @@ class FreshchatClient {
     let user = await this._getUserByReferenceId(props.botpressUserId);
 
     if (!user) {
-      user = await this._getUserByEmail(props.email);
+      // We're using email as reference id here
+      user = await this._getUserByReferenceId(props.email!);
     }
 
     if (!user) {
